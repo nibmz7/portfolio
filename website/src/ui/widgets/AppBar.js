@@ -31,10 +31,9 @@ const template = `
             height: 6rem;
             transform: translateY(2rem);
             transition: transform .4s ease-out;
-            cursor: pointer;
         }
 
-        #header-box > * {
+        #header-box > h4 {
             height: 3rem;
         }
 
@@ -46,6 +45,17 @@ const template = `
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+            height: 2rem;
+            margin: 0.5rem;
+            padding: 0 8px;
+            border-radius: 30px;
+            transition: .5s background;
+        }
+
+        #title-box:hover,  #title-box:focus{
+            background: #d4d4d4;
+            outline: none;
         }
 
         #dark-mode-toggle {
@@ -69,6 +79,14 @@ const template = `
         }
         #dark-mode-toggle > svg:nth-of-type(2) {
             margin-right: 5px;       
+        }
+
+        #dark-mode-toggle:focus{
+            outline: none;
+        }
+
+        #dark-mode-toggle:hover > .toggle, #dark-mode-toggle:focus > .toggle {
+            box-shadow: 0px 0px 7px 4px #948383;
         }
 
         .toggle {
