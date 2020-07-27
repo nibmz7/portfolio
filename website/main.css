@@ -34,9 +34,24 @@ body {
   overflow: hidden;
 }
 
+#top-wave, #bottom-wave {
+  fill: #eeeeee;
+}
+
+#top-wave {
+  position: absolute;
+  top: 0;
+
+}
+
+#bottom-wave {
+  position: absolute;
+  bottom: 0;
+}
+
 @media all and (min-width: 50rem) {
   body {
-    background: #efefef;
+    
   }
   #app {
     height: 80vh;
