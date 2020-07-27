@@ -25,6 +25,27 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  background: var(--color-bg);
+  transition: background .3s;
+  --color-primary: #EB5757;
+  --color-primary-dark: #d34444;
+  --color-text: #323232;
+  --color-text-inverse: #ffffff;
+  --color-bg: #ffffff;
+  --color-bg-dark: #eeeeee;
+  --color-waves: #eeeeee;
+  --color-shadow-box: #afafaf;
+}
+
+body.dark {
+  --color-primary: #3e414a;
+  --color-primary-dark: #24262b;
+  --color-text: #ffffff;
+  --color-text-inverse: #ffffff;
+  --color-bg: #3e414a;
+  --color-bg-dark: #303544;
+  --color-waves: #2c2e33;
+  --color-shadow-box: #000000;
 }
 
 #app {
@@ -35,7 +56,8 @@ body {
 }
 
 #top-wave, #bottom-wave {
-  fill: #eeeeee;
+  z-index: 9;
+  fill: var(--color-waves);
 }
 
 #top-wave {
@@ -51,14 +73,21 @@ body {
 
 @media all and (min-width: 50rem) {
   body {
-    
+    background: var(--color-bg-dark);
+    --color-waves: var(--color-primary);
+  }
+  #top-wave {
+    height: 10rem;
+  }
+  #bottom-wave {
+    display: none;
   }
   #app {
     height: 80vh;
-    margin: 10vh auto;
+    margin: 15vh auto;
     border-radius: 5px;
     width: 50rem;
-    background: #ffffff;
-    box-shadow: 0 0 6px 0px #afafaf;
+    box-shadow: 0 0 6px 0px var(--color-shadow-box);
+    background: var(--color-bg);
   }
 }

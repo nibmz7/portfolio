@@ -21,7 +21,7 @@ const template = `
             font-size: 1.5rem;
             font-weight: 400;
             position: absolute;
-            top: 0;
+            top: 10px;
             left: 0;
             right: 0;
             z-index: 10;
@@ -30,6 +30,7 @@ const template = `
         h4 {
             margin: 0;
             font-weight: 400;
+            color: var(--color-text);
         }
 
         #header-box {
@@ -106,9 +107,9 @@ const template = `
     </style>
 
     <div id="root">
-        <div id="header-box" class="show">
+        <div id="header-box">
             <h4>NIMZ</h4>
-            <div id="title-box" tabindex="-0" aria-label="Go back to home screen">
+            <div id="title-box" tabindex="-1" aria-label="Go back to home page">
                 ${arrowSVG}
                 <h4 id="title-text">About</h4>
             </div>
@@ -134,6 +135,7 @@ export default class AppBar extends HTMLElement {
       toggleDarkMode,
       (e) => {
         toggleDarkMode.classList.toggle('enabled');
+        document.body.classList.toggle('dark');
       },
       false
     );

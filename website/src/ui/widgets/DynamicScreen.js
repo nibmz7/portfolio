@@ -19,7 +19,7 @@ const template = `
         }
 
         #detail {
-            background: green;
+            // background: green;
         }
 
         .expand {
