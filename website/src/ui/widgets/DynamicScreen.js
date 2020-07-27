@@ -76,7 +76,7 @@ export default class DynamicScreen extends HTMLElement {
       this.hasExpanded = true;
       this.root.classList.add('expand');
     }
-    if(this.detailFragment) this.detailFragment.remove();
+    if (this.detailFragment) this.detailFragment.remove();
     this.detail.appendChild(fragment);
     this.detailFragment = fragment;
   }

@@ -44,10 +44,11 @@ const template = `
             --shadow-bg: 60 0 171;
         }
 
-        ${replaceFocusStyle('.card', `
-            transform: perspective(100px) translateZ(5px);
-            box-shadow: 0px 0px 9px 0px rgb(var(--shadow-bg) / .75);     
-        `)}
+        ${replaceFocusStyle(
+          '.card',
+          `transform: perspective(100px) translateZ(5px);
+           box-shadow: 0px 0px 9px 0px rgb(var(--shadow-bg) / .75);`
+        )}
 
         .card.selected {
             background: #d34444;
