@@ -3,9 +3,9 @@ const template = `
 
         #root {
             display: flex;
+            width: 200vw;
             height: 100%;
-            width: 200%;
-            overflow-x: hidden;
+            overflow: hidden;
             transition: transform .3s ease-out;
         }
 
@@ -15,7 +15,7 @@ const template = `
         }
 
         #list {
-            background: blue;
+            
         }
 
         #detail {

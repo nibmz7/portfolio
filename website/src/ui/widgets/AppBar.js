@@ -20,6 +20,11 @@ const template = `
             padding: 0 18px;
             font-size: 1.5rem;
             font-weight: 400;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
         }
 
         h4 {
@@ -50,7 +55,8 @@ const template = `
             margin: 0.5rem;
             padding: 0 8px;
             border-radius: 30px;
-            transition: .5s background;
+            transition: .3s background;
+            transform: translateX(-1rem);
         }
 
         ${replaceFocusStyle('#title-box', 'background: #d4d4d4')}
@@ -124,9 +130,13 @@ export default class AppBar extends HTMLElement {
     this.headerBox = this.shadowRoot.getElementById('header-box');
     this.titleBox = this.shadowRoot.getElementById('title-box');
 
-    onPressed(toggleDarkMode, (e) => {
-      toggleDarkMode.classList.toggle('enabled');
-    });
+    onPressed(
+      toggleDarkMode,
+      (e) => {
+        toggleDarkMode.classList.toggle('enabled');
+      },
+      false
+    );
 
     onPressed(this.titleBox, (e) => {
       this.hideTitle();

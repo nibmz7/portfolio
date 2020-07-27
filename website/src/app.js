@@ -1,11 +1,10 @@
-import DynamicScreen from './ui/widgets/DynamicScreen.js';
-import AppBar from './ui/widgets/AppBar.js';
+import HomeView from './ui/home-view/HomeView.js';
+import './ui/widgets/AppBar.js';
+import './ui/widgets/DynamicScreen.js';
 
 class Application {
 
 }
 
-let dynamicScreen = new DynamicScreen();
-let appBar = new AppBar();
-document.body.appendChild(appBar);
-document.body.appendChild(dynamicScreen);
+let dynamicScreen = document.querySelector('dynamic-screen');
+dynamicScreen.showList(new HomeView());

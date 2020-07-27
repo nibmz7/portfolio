@@ -1,6 +1,6 @@
 const hasPointerEvent = 'PointerEvent' in window;
 
-const onPressed = (element, callback) => {
+const onPressed = (element, callback, autoBlur = true) => {
   if (hasPointerEvent) {
     element.onpointerup = callback;
     element.onpointerdown = (e) => {
@@ -12,6 +12,7 @@ const onPressed = (element, callback) => {
     let code = e.keyCode;
     if (code === 32 || code === 13) {
       callback(e);
+      if (autoBlur) element.blur();
     }
   };
 };
