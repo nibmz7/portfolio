@@ -53,11 +53,13 @@ body.dark {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  transition: all .3s;
 }
 
 #top-wave, #bottom-wave {
   z-index: 9;
   fill: var(--color-waves);
+  transition: fill .3s;
 }
 
 #top-wave {
