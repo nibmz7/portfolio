@@ -61,7 +61,11 @@ const template = `
             transform: translateX(-1rem);
         }
 
-        ${replaceFocusStyle('#title-box', 'background: #d4d4d4')}
+        #title-box > svg{
+            fill: var(--color-text);
+        }
+
+        ${replaceFocusStyle('#title-box', 'background: var(--color-shadow-box);')}
 
         #dark-mode-box {
             position: relative;

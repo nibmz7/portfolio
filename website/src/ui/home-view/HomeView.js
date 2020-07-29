@@ -51,8 +51,8 @@ const template = `
         )}
 
         .card.selected {
-            background: #d34444;
-            box-shadow: 0px 3px 8px 1px #d344448a;
+            transform: perspective(100px) translateZ(5px);
+            box-shadow: 0px 0px 9px 0px rgb(var(--shadow-bg) / .75);
         }
 
     </style>
@@ -69,12 +69,24 @@ export default class HomeView extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = template;
+    this.selectedCard = null;
   }
 
   onItemClick(callback) {
-    this.shadowRoot
-      .querySelectorAll('.card')
-      .forEach((card) => onPressed(card, (e) => callback(e, card.id)));
+    this.shadowRoot.querySelectorAll('.card').forEach((card) =>
+      onPressed(card, (e) => {
+        this.reset();
+        card.classList.add('selected');
+        this.selectedCard = card;
+        callback(e, card.id);
+      })
+    );
+  }
+
+  reset() {
+    if(this.selectedCard) {
+        this.selectedCard.classList.remove('selected'); 
+    }
   }
 }
 
