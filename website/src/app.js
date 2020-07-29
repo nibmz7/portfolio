@@ -1,4 +1,5 @@
 import HomeView from './ui/home-view/HomeView.js';
+import './ui/about-view/AboutView.js';
 import './ui/widgets/AppBar.js';
 import './ui/widgets/DynamicScreen.js';
 import './ui/widgets/Footer.js';

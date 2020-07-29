@@ -104,6 +104,13 @@ const template = `
             transform: translateX(100%);
         }
 
+        @media all and (min-width: 50rem) {
+            #root {
+                border: 2px dashed #c4c0c0;
+                backdrop-filter: blur(2px);
+            }
+        }
+
     </style>
 
     <div id="root">

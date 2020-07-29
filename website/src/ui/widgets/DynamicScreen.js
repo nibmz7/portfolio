@@ -19,7 +19,11 @@ const template = `
         }
 
         #detail {
-            // background: green;
+            overflow-y: scroll;
+            height: 100%;
+            max-height: 100%;
+            box-sizing: border-box;
+            padding: 5rem 2rem;
         }
 
         .expand {
@@ -46,9 +50,9 @@ const template = `
 
     </style>
 
-    <div id="root">
+    <div id="root" class="expand">
         <div id="list" class="fragment"></div>
-        <div id="detail" class="fragment"></div>
+        <div id="detail" class="fragment"><about-view></about-view></div>
     </div>
 
 `;
