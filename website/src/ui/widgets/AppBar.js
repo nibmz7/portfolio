@@ -31,6 +31,7 @@ const template = `
             margin: 0;
             font-weight: 400;
             color: var(--color-text);
+            text-transform: capitalize;
         }
 
         #header-box {
@@ -138,10 +139,14 @@ export default class AppBar extends HTMLElement {
     this.headerBox = this.shadowRoot.getElementById('header-box');
     this.titleBox = this.shadowRoot.getElementById('title-box');
     this.titleText = this.shadowRoot.getElementById('title-text');
+    let darkMode = localStorage.getItem('dark-mode') === 'true';
+    if(darkMode) toggleDarkMode.classList.add('enabled');
 
     onPressed(
       toggleDarkMode,
       (e) => {
+        darkMode = !darkMode;
+        localStorage.setItem('dark-mode', darkMode);
         toggleDarkMode.classList.toggle('enabled');
         document.body.classList.toggle('dark');
       },

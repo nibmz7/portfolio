@@ -18,6 +18,13 @@
   </head>
 
   <body>
+
+    <script>
+      let darkMode = localStorage.getItem('dark-mode') === 'true';
+      console.log(localStorage.getItem('dark-mode'));
+      if (darkMode) document.body.classList.add('dark');
+    </script>
+    
     <svg
       id="top-wave"
       xmlns="http://www.w3.org/2000/svg"

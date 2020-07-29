@@ -32,8 +32,6 @@ const template = `
             transform: translateX(-100vw);
         }
 
-
-
         @media all and (min-width: 50rem) {
             #root {
               width: 50rem;
