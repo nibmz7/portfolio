@@ -30,6 +30,7 @@ body {
   --color-primary: #EB5757;
   --color-primary-dark: #d34444;
   --color-text: #323232;
+  --color-text-secondary: #717171;
   --color-text-inverse: #ffffff;
   --color-bg: #ffffff;
   --color-bg-dark: #eeeeee;
@@ -41,6 +42,7 @@ body.dark {
   --color-primary: #3e414a;
   --color-primary-dark: #24262b;
   --color-text: #ffffff;
+  --color-text-secondary:#ababab;
   --color-text-inverse: #ffffff;
   --color-bg: #3e414a;
   --color-bg-dark: #303544;

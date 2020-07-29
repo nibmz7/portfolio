@@ -28,6 +28,10 @@ const template = `
             padding: 5rem 2rem;
         }
 
+        #detail > * {
+          display: none;
+        }
+
         .expand {
             transform: translateX(-100vw);
         }
@@ -63,6 +67,7 @@ const template = `
         </div>
         <div id="detail" class="fragment">
           <about-view></about-view>
+          <blog-view></blog-view>
         </div>
     </div>
 
@@ -84,10 +89,9 @@ export default class DynamicScreen extends HTMLElement {
     this.homeView = this.shadowRoot.querySelector('home-view');
     this.homeView.onItemClick((e, cardId) => {
       if (this.currentCardId) {
-        
-        this.shadowRoot.querySelector(`${cardId}-view`).style.diplay = 'none';
+        this.shadowRoot.querySelector(`${this.currentCardId}-view`).style.display = '';
       }
-      this.shadowRoot.querySelector(`${cardId}-view`).style.diplay = 'block';
+      this.shadowRoot.querySelector(`${cardId}-view`).style.display = 'block';
       this.root.classList.add('expand');
       this.currentCardId = cardId;
       callback(cardId);

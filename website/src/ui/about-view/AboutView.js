@@ -98,18 +98,18 @@ const template = `
         </div>
 
         ${generateInfo([
-            {
+          {
             question: 'Alma mater',
             answer: 'Computer Engineering<br>@ Singapore Polytechnic',
-            },
-            {
+          },
+          {
             question: 'Where am I now?',
             answer: 'Serving in the army as a conscript until 30 Jan 2022.',
-            },
-            {
+          },
+          {
             question: 'Have I worked before?',
             answer: 'No, I have not but I am itching and yearning to work as a developer or a software engineer. I really want to work alongside peers who share the same passion and I want to know what it is like to collobarate with other developers in a professional setting.',
-            }
+          },
         ])}
 
     </div>
