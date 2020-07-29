@@ -25,7 +25,7 @@ const template = `
             height: 100%;
             max-height: 100%;
             box-sizing: border-box;
-            padding: 5rem 2rem;
+            padding: 5rem 0;
         }
 
         #detail > * {

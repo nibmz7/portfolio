@@ -22,6 +22,8 @@ const template = `
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 2rem;
+            box-sizing: border-box;
         }
 
         p {
@@ -104,7 +106,7 @@ const template = `
           },
           {
             question: 'Where am I now?',
-            answer: 'Serving in the army as a conscript until 30 Jan 2022.',
+            answer: 'Serving in the army as a conscript until 30 Jan 2021.',
           },
           {
             question: 'Have I worked before?',

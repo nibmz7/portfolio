@@ -7,9 +7,11 @@ const template = `
         #root {
             position: absolute;
             display: flex;
-            bottom: 30px;
+            bottom: 0;
             left: 0;
             right: 0;
+            padding-bottom: 30px;
+            padding-top: 10px;
             justify-content: center;
             z-index: 10;
         }
@@ -69,6 +71,14 @@ const template = `
         #twitter > svg {
             height: 80%;
             width: 80%;
+        }
+
+        @media all and (min-width: 50rem) {
+            #root {
+                padding-bottom: 10px;
+                border-top: 2px dashed #c4c0c0;
+                backdrop-filter: blur(2px);
+            }
         }
 
     </style>

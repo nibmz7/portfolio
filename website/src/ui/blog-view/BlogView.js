@@ -1,9 +1,13 @@
-const Post = (title, seriesTitle = null) => `
-    <div class="post">
+import { replaceFocusStyle, onPressed } from "../../Utils.js";
+
+const Post = (title, seriesTitle = null, link) => `
+    <div class="post" tabindex="0" aria-label="Post on ${title}" data-link="${link}">
         <p class="title">${title}</p>
         ${seriesTitle ? `<p class="series">${seriesTitle}</p>` : ''}
-        <div class="line"></div>
     </div>
+
+    <div class="line"></div>
+
 `;
 
 const template = `
@@ -15,11 +19,19 @@ const template = `
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 0 1rem;
         }
 
         .post {
             width: 100%;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background .4s ease-out;
         }
+
+        ${replaceFocusStyle('.post', 'background: #71717152;')}
 
         .title {
             color: var(--color-text);
@@ -32,8 +44,9 @@ const template = `
         }
 
         .line {
-            width: 100%;
+            width: calc(100% - 2rem);
             height: 5px;
+            margin-bottom: 5px;
             border-bottom: 2px dotted #c4c0c0;
         }
 
@@ -41,7 +54,7 @@ const template = `
 
     <div id="root">
         
-        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
+        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux', 'https://www.google.com')}
         ${Post('UEFI & GPT', 'From Windows to Linux')}
         ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
         ${Post('UEFI & GPT', 'From Windows to Linux')}
@@ -57,6 +70,12 @@ export default class BlogView extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = template;
+    let posts = this.shadowRoot.querySelectorAll('.post');
+    posts.forEach((post) => {
+      onPressed(post, (e) => {
+        window.open(post.dataset.link, '_blank');
+      });
+    });
   }
 }
 
