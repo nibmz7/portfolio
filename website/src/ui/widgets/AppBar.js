@@ -36,7 +36,7 @@ const template = `
         #header-box {
             height: 6rem;
             transform: translateY(2rem);
-            transition: transform .4s ease-out;
+            transition: transform .8s cubic-bezier(.77, 0, .175, 1);
         }
 
         #header-box > h4 {
@@ -137,6 +137,7 @@ export default class AppBar extends HTMLElement {
     let toggleDarkMode = this.shadowRoot.getElementById('toggler');
     this.headerBox = this.shadowRoot.getElementById('header-box');
     this.titleBox = this.shadowRoot.getElementById('title-box');
+    this.titleText = this.shadowRoot.getElementById('title-text');
 
     onPressed(
       toggleDarkMode,
@@ -146,9 +147,12 @@ export default class AppBar extends HTMLElement {
       },
       false
     );
+  }
 
+  onBackPressed(callback) {
     onPressed(this.titleBox, (e) => {
       this.hideTitle();
+      callback();
     });
   }
 

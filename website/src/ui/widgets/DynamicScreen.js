@@ -1,3 +1,5 @@
+import HomeView from '../home-view/HomeView.js';
+
 const template = `
     <style>
 
@@ -6,7 +8,7 @@ const template = `
             width: 200vw;
             height: 100%;
             overflow: hidden;
-            transition: transform .3s ease-out;
+            transition: transform .8s cubic-bezier(.77, 0, .175, 1);
         }
 
         .fragment {
@@ -30,18 +32,25 @@ const template = `
             transform: translateX(-100vw);
         }
 
+
+
         @media all and (min-width: 50rem) {
             #root {
-                width: 50rem;
-                margin-left: auto;
-                margin-right: auto;
-                transform: translateX(15rem);
+              width: 50rem;
+              margin-left: auto;
+              margin-right: auto;
+              transform: translateX(15rem);
             }
             #list {
-                width: 20rem;
+              width: 20rem;
             }
             #detail {
-                width: 30rem;
+              opacity: 0;
+              transition: opacity .3s .3s;
+              width: 30rem;
+            }
+            .expand > #detail {
+              opacity: 1;
             }
             #root.expand {
                 transform: translateX(0);
@@ -50,9 +59,13 @@ const template = `
 
     </style>
 
-    <div id="root" class="expand">
-        <div id="list" class="fragment"></div>
-        <div id="detail" class="fragment"><about-view></about-view></div>
+    <div id="root">
+        <div id="list" class="fragment">
+          <home-view></home-view>
+        </div>
+        <div id="detail" class="fragment">
+          <about-view></about-view>
+        </div>
     </div>
 
 `;
@@ -66,32 +79,19 @@ export default class DynamicScreen extends HTMLElement {
     this.list = this.shadowRoot.getElementById('list');
     this.detail = this.shadowRoot.getElementById('detail');
     this.hasExpanded = false;
-    this.listFragment = null;
-    this.detailFragment = null;
   }
 
-  showList(fragment) {
-    this.listFragment = fragment;
-    this.list.appendChild(fragment);
-  }
-
-  showDetail(fragment) {
-    if (!this.hasExpanded) {
-      this.hasExpanded = true;
+  onItemClick(callback) {
+    let homeView = this.shadowRoot.querySelector('home-view');
+    homeView.onItemClick((e, cardId) => {
+      this.shadowRoot.querySelector('about-view').style.diplay = 'block';
       this.root.classList.add('expand');
-    }
-    if (this.detailFragment) this.detailFragment.remove();
-    this.detail.appendChild(fragment);
-    this.detailFragment = fragment;
+      callback(cardId);
+    });
   }
 
-  closeDetail() {
-    if (this.hasExpanded) {
-      this.hasExpanded = false;
-      this.root.classList.remove('expand');
-    }
-    this.detailFragment.remove();
-    this.detailFragment = null;
+  closeDetailFragment() {
+    this.root.classList.remove('expand');
   }
 }
 

@@ -1,10 +1,17 @@
-import HomeView from './ui/home-view/HomeView.js';
-import './ui/about-view/AboutView.js';
 import './ui/widgets/AppBar.js';
-import './ui/widgets/DynamicScreen.js';
 import './ui/widgets/Footer.js';
+import './ui/home-view/HomeView.js';
+import './ui/about-view/AboutView.js';
+import './ui/widgets/DynamicScreen.js';
 
-class Application {}
-
+let appBar = document.querySelector('app-bar');
 let dynamicScreen = document.querySelector('dynamic-screen');
-dynamicScreen.showList(new HomeView());
+
+appBar.onBackPressed(() => {
+    dynamicScreen.closeDetailFragment();
+});
+
+dynamicScreen.onItemClick(item => {
+    appBar.showTitle(item);
+});
+

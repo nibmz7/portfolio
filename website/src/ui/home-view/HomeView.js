@@ -69,13 +69,12 @@ export default class HomeView extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = template;
-    this.shadowRoot
-      .querySelectorAll('.card')
-      .forEach((card) => onPressed(card, (e) => this.onItemClick(e, card.id)));
   }
 
-  onItemClick(e, id) {
-    console.log(this, id);
+  onItemClick(callback) {
+    this.shadowRoot
+      .querySelectorAll('.card')
+      .forEach((card) => onPressed(card, (e) => callback(e, card.id)));
   }
 }
 
