@@ -84,6 +84,8 @@ export default class DynamicScreen extends HTMLElement {
     this.detail = this.shadowRoot.getElementById('detail');
     this.hasExpanded = false;
     this.currentCardId = null;
+    this.shadowRoot.querySelector(`projects-view`).style.display = 'block';
+      this.root.classList.add('expand');
   }
 
   onItemClick(callback) {
