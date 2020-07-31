@@ -37,7 +37,7 @@ const template = `
             position: relative;
             position: relative;
             text-decoration: underline;
-            color: #EC4141;
+            color: var(--color-link);
             padding: 1rem;
         }
 

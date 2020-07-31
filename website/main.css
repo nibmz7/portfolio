@@ -29,6 +29,7 @@ body {
   transition: background .3s;
   --color-primary: #EB5757;
   --color-primary-dark: #d34444;
+  --color-link: #EC4141;
   --color-text: #323232;
   --color-text-secondary: #717171;
   --color-text-inverse: #ffffff;
@@ -41,6 +42,7 @@ body {
 body.dark {
   --color-primary: #3e414a;
   --color-primary-dark: #24262b;
+  --color-link: #48fff3;
   --color-text: #ffffff;
   --color-text-secondary:#ababab;
   --color-text-inverse: #ffffff;

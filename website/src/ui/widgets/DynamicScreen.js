@@ -82,15 +82,17 @@ export default class DynamicScreen extends HTMLElement {
     this.detail = this.shadowRoot.getElementById('detail');
     this.hasExpanded = false;
     this.currentCardId = null;
-    this.shadowRoot.querySelector(`projects-view`).style.display = 'block';
-      this.root.classList.add('expand');
+    // this.shadowRoot.querySelector(`projects-view`).style.display = 'block';
+    // this.root.classList.add('expand');
   }
 
   onItemClick(callback) {
     this.homeView = this.shadowRoot.querySelector('home-view');
     this.homeView.onItemClick((e, cardId) => {
       if (this.currentCardId) {
-        this.shadowRoot.querySelector(`${this.currentCardId}-view`).style.display = '';
+        this.shadowRoot.querySelector(
+          `${this.currentCardId}-view`
+        ).style.display = '';
       }
       this.shadowRoot.querySelector(`${cardId}-view`).style.display = 'block';
       this.root.classList.add('expand');
