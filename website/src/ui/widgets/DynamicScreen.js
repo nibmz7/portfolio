@@ -68,6 +68,7 @@ const template = `
         <div id="detail" class="fragment">
           <about-view></about-view>
           <blog-view></blog-view>
+          <projects-view></projects-view>
         </div>
     </div>
 

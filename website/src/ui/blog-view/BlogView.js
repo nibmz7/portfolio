@@ -53,7 +53,6 @@ const template = `
     </style>
 
     <div id="root">
-        
         ${Post('Basics of Linux GUI Stack', 'From Windows to Linux', 'https://www.google.com')}
         ${Post('UEFI & GPT', 'From Windows to Linux')}
         ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}

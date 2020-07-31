@@ -3,6 +3,7 @@ import './ui/widgets/Footer.js';
 import './ui/home-view/HomeView.js';
 import './ui/about-view/AboutView.js';
 import './ui/blog-view/BlogView.js';
+import './ui/projects-view/ProjectsView.js';
 import './ui/widgets/DynamicScreen.js';
 
 let appBar = document.querySelector('app-bar');
