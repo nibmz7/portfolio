@@ -1,5 +1,3 @@
-import HomeView from '../home-view/HomeView.js';
-
 const template = `
     <style>
 
