@@ -76,7 +76,7 @@ const template = `
         @media all and (min-width: 50rem) {
             #root {
                 padding-bottom: 10px;
-                border-top: 2px dashed #c4c0c0;
+                border-top: 1px dashed var(--color-border);
                 backdrop-filter: blur(2px);
             }
         }

@@ -37,6 +37,7 @@ body {
   --color-bg-dark: #eeeeee;
   --color-waves: #eeeeee;
   --color-shadow-box: #afafaf;
+  --color-border: #c4c0c0;
 }
 
 body.dark {

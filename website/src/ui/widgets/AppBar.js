@@ -111,7 +111,7 @@ const template = `
 
         @media all and (min-width: 50rem) {
             #root {
-                border: 2px dashed #c4c0c0;
+                border: 1px dashed var(--color-border);
                 backdrop-filter: blur(2px);
             }
         }
@@ -160,7 +160,6 @@ export default class AppBar extends HTMLElement {
 
   onBackPressed(callback) {
     onPressed(this.titleBox, (e) => {
-      this.hideTitle();
       callback();
     });
   }

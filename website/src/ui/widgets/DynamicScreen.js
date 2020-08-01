@@ -45,6 +45,7 @@ const template = `
               width: 20rem;
             }
             #detail {
+              position: relative;
               opacity: 0;
               transition: opacity .3s .3s;
               width: 30rem;
@@ -55,6 +56,16 @@ const template = `
             #root.expand {
                 transform: translateX(0);
             }
+            #divider {
+              display: block;
+              position: fixed;
+              left: 20rem;
+              top: 5rem;
+              bottom: 5rem;
+              border-left-color: var(--color-border);
+              border-left-width: 1px;
+              border-left-style: dashed;
+            }
         }
 
     </style>
@@ -64,6 +75,7 @@ const template = `
           <home-view></home-view>
         </div>
         <div id="detail" class="fragment">
+          <div id="divider"></div>
           <about-view></about-view>
           <blog-view></blog-view>
           <projects-view></projects-view>
@@ -81,27 +93,31 @@ export default class DynamicScreen extends HTMLElement {
     this.list = this.shadowRoot.getElementById('list');
     this.detail = this.shadowRoot.getElementById('detail');
     this.hasExpanded = false;
-    this.currentCardId = null;
+    this.currentTitle = null;
     // this.shadowRoot.querySelector(`projects-view`).style.display = 'block';
     // this.root.classList.add('expand');
   }
 
   onItemClick(callback) {
     this.homeView = this.shadowRoot.querySelector('home-view');
-    this.homeView.onItemClick((e, cardId) => {
-      if (this.currentCardId) {
-        this.shadowRoot.querySelector(
-          `${this.currentCardId}-view`
-        ).style.display = '';
-      }
-      this.shadowRoot.querySelector(`${cardId}-view`).style.display = 'block';
-      this.root.classList.add('expand');
-      this.currentCardId = cardId;
-      callback(cardId);
+    this.homeView.onItemClick((e, title) => {
+      callback(title);
     });
   }
 
-  closeDetailFragment() {
+  showDetailFragment(title, setSelected = false) {
+    if (this.currentTitle) {
+      this.shadowRoot.querySelector(
+        `${this.currentTitle}-view`
+      ).style.display = '';
+    }
+    this.shadowRoot.querySelector(`${title}-view`).style.display = 'block';
+    this.root.classList.add('expand');
+    this.currentTitle = title;
+    if(setSelected) this.homeView.setSelected(title);
+  }
+
+  hideDetailFragment() {
     this.root.classList.remove('expand');
     this.homeView.reset();
   }

@@ -83,6 +83,12 @@ export default class HomeView extends HTMLElement {
     );
   }
 
+  setSelected(title) {
+    let card = this.shadowRoot.getElementById(title);
+    card.classList.add('selected');
+    this.selectedCard = card;
+  }
+
   reset() {
     if(this.selectedCard) {
         this.selectedCard.classList.remove('selected'); 

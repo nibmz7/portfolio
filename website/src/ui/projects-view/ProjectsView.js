@@ -36,7 +36,7 @@ const template = `
             margin: auto;
             height: 5px;
             margin-bottom: 5px;
-            border-bottom: 2px dotted #c4c0c0;
+            border-bottom: 2px dotted var(--color-border);
         }
 
         .project {
