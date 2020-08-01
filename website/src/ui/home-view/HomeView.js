@@ -69,29 +69,29 @@ export default class HomeView extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = template;
-    this.selectedCard = null;
+    this.currentTitle = null;
+    this.cards = {};
   }
 
   onItemClick(callback) {
-    this.shadowRoot.querySelectorAll('.card').forEach((card) =>
+    this.shadowRoot.querySelectorAll('.card').forEach((card) => {
+      this.cards[card.id] = card;
       onPressed(card, (e) => {
         this.reset();
-        card.classList.add('selected');
-        this.selectedCard = card;
         callback(e, card.id);
-      })
-    );
+      });
+    });
   }
 
   setSelected(title) {
-    let card = this.shadowRoot.getElementById(title);
-    card.classList.add('selected');
-    this.selectedCard = card;
+    this.reset();
+    this.cards[title].classList.add('selected');
+    this.currentTitle = title;
   }
 
   reset() {
-    if(this.selectedCard) {
-        this.selectedCard.classList.remove('selected'); 
+    if (this.currentTitle) {
+      this.cards[this.currentTitle].classList.remove('selected');
     }
   }
 }

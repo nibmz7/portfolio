@@ -105,7 +105,8 @@ export default class DynamicScreen extends HTMLElement {
     });
   }
 
-  showDetailFragment(title, setSelected = false) {
+  showDetailFragment(title) {
+    this.homeView.setSelected(title);
     if (this.currentTitle) {
       this.shadowRoot.querySelector(
         `${this.currentTitle}-view`
@@ -114,7 +115,6 @@ export default class DynamicScreen extends HTMLElement {
     this.shadowRoot.querySelector(`${title}-view`).style.display = 'block';
     this.root.classList.add('expand');
     this.currentTitle = title;
-    if(setSelected) this.homeView.setSelected(title);
   }
 
   hideDetailFragment() {
