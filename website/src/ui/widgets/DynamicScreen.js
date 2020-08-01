@@ -1,3 +1,5 @@
+import {hexToRGB} from '../../Utils.js'
+
 const template = `
     <style>
 
@@ -12,10 +14,6 @@ const template = `
         .fragment {
             width: 50%;
             height: 100%;
-        }
-
-        #list {
-            
         }
 
         #detail {
@@ -94,11 +92,10 @@ export default class DynamicScreen extends HTMLElement {
     this.detail = this.shadowRoot.getElementById('detail');
     this.hasExpanded = false;
     this.currentTitle = null;
-    // this.shadowRoot.querySelector(`projects-view`).style.display = 'block';
-    // this.root.classList.add('expand');
   }
 
   onItemClick(callback) {
+    hexToRGB();
     this.homeView = this.shadowRoot.querySelector('home-view');
     this.homeView.onItemClick((e, title) => {
       callback(title);

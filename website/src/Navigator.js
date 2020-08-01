@@ -1,10 +1,12 @@
+import { isLocalNetwork } from "./Utils.js";
+
 const pages = ['about', 'blog', 'projects'];
 
 export default class Navigator {
   constructor() {
     let title = window.location.search.replace('?goto=', '');
     this.reset();
-    if (pages.some((page) => title.includes(page))) {
+    if (isLocalNetwork() || pages.some((page) => title.includes(page))) {
       this.go(title);
     }
   }

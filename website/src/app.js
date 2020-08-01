@@ -34,16 +34,3 @@ class Application {
 }
 
 new Application();
-
-function checkHostName() {
-  console.log(String.fromCharCode(110, 105, 109, 122, 46, 100, 101, 118));
-  console.table(window.location);
-}
-
-function checkIfSameDomain() {
-  let domain = String.fromCharCode(110, 105, 109, 122, 46, 100, 101, 118);
-  // window.location.host.includes(domain) || window.location.replace('https://www.'+domain);
-}
-
-checkHostName();
-checkIfSameDomain();
