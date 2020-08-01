@@ -92,6 +92,7 @@ export default class HomeView extends HTMLElement {
   reset() {
     if (this.currentTitle) {
       this.cards[this.currentTitle].classList.remove('selected');
+      this.cards[this.currentTitle].blur();
     }
   }
 }
