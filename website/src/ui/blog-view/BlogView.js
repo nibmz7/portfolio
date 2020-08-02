@@ -1,4 +1,5 @@
-import { replaceFocusStyle, onPressed } from "../../Utils.js";
+import { replaceFocusStyle, onPressed } from '../../Utils.js';
+import { BlogContent } from '../../content.js';
 
 const Post = (title, seriesTitle = null, link) => `
     <div class="post" tabindex="0" aria-label="Post on ${title}" data-link="${link}">
@@ -10,7 +11,9 @@ const Post = (title, seriesTitle = null, link) => `
 
 `;
 
-const template = `
+export { Post };
+
+const template = () => `
 
     <style>
 
@@ -53,14 +56,7 @@ const template = `
     </style>
 
     <div id="root">
-        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux', 'https://www.google.com')}
-        ${Post('UEFI & GPT', 'From Windows to Linux')}
-        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-        ${Post('UEFI & GPT', 'From Windows to Linux')}
-        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-        ${Post('UEFI & GPT', 'From Windows to Linux')}
-        ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-        ${Post('UEFI & GPT', 'From Windows to Linux')}
+        ${BlogContent}
     </div>
 `;
 
@@ -68,7 +64,7 @@ export default class BlogView extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = template;
+    this.shadowRoot.innerHTML = template();
     let posts = this.shadowRoot.querySelectorAll('.post');
     posts.forEach((post) => {
       onPressed(post, (e) => {

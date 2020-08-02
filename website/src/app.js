@@ -1,3 +1,4 @@
+import './content.js';
 import './ui/widgets/AppBar.js';
 import './ui/widgets/Footer.js';
 import './ui/home-view/HomeView.js';

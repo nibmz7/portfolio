@@ -1,4 +1,5 @@
 import { replaceFocusStyle } from '../../Utils.js';
+import { AboutContent } from '../../content.js';
 
 const Info = (question, answer) => `
   <div class="info">
@@ -7,7 +8,9 @@ const Info = (question, answer) => `
   </div>
 `;
 
-const template = `
+export { Info };
+
+const template = () => `
 
     <style>
 
@@ -93,10 +96,7 @@ const template = `
             </p>
         </div>
 
-        ${Info('Alma mater', 'Computer Engineering<br>@ Singapore Polytechnic')}
-        ${Info('Where am I now?', 'Serving in the army as a conscript until 30 Jan 2021.')}
-        ${Info('Have I worked before?', 'No, I have not but I am itching and yearning to work as a developer or a software engineer. I really want to work alongside peers who share the same passion and I want to know what it is like to collobarate with other developers in a professional setting.')}
-
+        ${AboutContent}
     </div>
 `;
 
@@ -104,7 +104,7 @@ export default class AboutView extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = template;
+    this.shadowRoot.innerHTML = template();
   }
 }
 
