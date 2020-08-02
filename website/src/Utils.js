@@ -13,17 +13,23 @@ const isLocalNetwork = (hostname = window.location.hostname) => {
 };
 
 const onPressed = (element, callback, autoBlur = true) => {
+  let isRunning = false;
+  let debounce = setTimeout(() => (isRunning = false), 1000);
+  let onPressListener = (e) => {
+    if (isRunning) return;
+    isRunning = true;
+    setTimeout(() => (isRunning = false), 1000);
+    callback(e);
+  };
   if (hasPointerEvent) {
-    element.onpointerup = callback;
-    element.onpointerdown = (e) => {
-      e.preventDefault();
-    };
-  } else element.onclick = callback;
+    element.onpointerup = onPressListener;
+    element.onpointerdown = (e) => e.preventDefault();
+  } else element.onclick = onPressListener;
 
   element.onkeydown = (e) => {
     let code = e.keyCode;
     if (code === 32 || code === 13) {
-      callback(e);
+      onPressListener(e);
       if (autoBlur) element.blur();
     }
   };
