@@ -4,7 +4,7 @@ Source code for the resume website and drafts for blog posts.
 ![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/webp/screenshot_1.webp)
 ![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/webp/screenshot_2.webp)
 
-#Installation
+# Installation
 1. Clone repo
 2. Serve the index.html from the website directory.
 
