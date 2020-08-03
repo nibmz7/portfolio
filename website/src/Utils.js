@@ -14,7 +14,6 @@ const isLocalNetwork = (hostname = window.location.hostname) => {
 
 const onPressed = (element, callback, autoBlur = true) => {
   let isRunning = false;
-  let debounce = setTimeout(() => (isRunning = false), 1000);
   let onPressListener = (e) => {
     if (isRunning) return;
     isRunning = true;

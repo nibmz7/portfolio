@@ -3,9 +3,12 @@ import { Post } from './ui/blog-view/BlogView.js';
 import { Project } from './ui/projects-view/ProjectsView.js';
 
 const AboutContent = `
-    ${Info('Alma mater', 'Computer Engineering<br>@ Singapore Polytechnic')}
-    ${Info('Where am I now?', 'Serving in the army as a conscript until 30 Jan 2021.')}
-    ${Info('Have I worked before?', 'No, I have not but I am itching and yearning to work as a developer or a software engineer. I really want to work alongside peers who share the same passion and I want to know what it is like to collobarate with other developers in a professional setting.')}
+    ${Info('Where am I from?', 'I was brought into this world and raised in a tiny tropical island known as Singapore.')}
+    ${Info('Alma mater', 'Diploma in Computer Engineering<br>@ Singapore Polytechnic')}
+    ${Info('What am I currently doing?', `I'm serving in the army as a conscript until the 1st of February 2021. I try to learn as much as I can in my spare time.`)}
+    ${Info('What am I planning to do after this National Service?', `NS has given me a buffer period to prepare for adulthood and I am very much thankful for it. What I plan to do right away is to kickstart a career as a professional software developer/engineer and if possible, pursue a part-time degree in computer science.`)}
+    ${Info('Do I have any previous work experiences?', `No, I have none but I am itching and yearning to make my debut as a professional developer working alongside like-minded individuals who have strong passion for developing software and are keen to share their wealth of knowledge as I learn the ropes.`)}
+    ${Info('How did I start out coding?', `You may have heard of people starting out with HTML. Funny thing, I started mine with XML about 4 years ago when one day I decided to install Android Studio without knowing a single concept of programming. I built an app with just XML then and after some time of tinkering I discovered what Java was and it all set off from there.`)}
 `;
 
 const BlogContent = `
