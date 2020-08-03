@@ -80,7 +80,7 @@ const ProjectsContent = `
     )}
 
     ${Project(
-        'Portfolio website',
+        'Portfolio website - <a href="https://github.com/nibmz7/portfolio" target="blank">source code</a>',
         `I wrote this website with a mobile first approach and wanted it took act and look like a mobile application. The layout readjusts when it is displayed on a screen big enough. This layout behavior is inspired by Android's own master-detail flow which was designed for tablets.`,
         ['HTML', 'CSS', 'JavaScript'],
         [
