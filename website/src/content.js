@@ -25,8 +25,8 @@ ${Post('Basics of Linux GUI Stack', 'From Windows to Linux','https://www.google.
 const ProjectsContent = `
     ${Project(
     'Live Parade State - <a href="https://github.com/nibmz7/live-parade-state" target="blank">source code</a>',
-    `This was my first proper web app and this played a big part in my learning journey. Firebase allowed me to focus on the front-end portion whilst also exposing me to the various cloud services. This army-style attendance taking system is now used by my unit which has over 50+ personells and I believe it can be used by the whole SAF organization but that's a tall order.`,
-    ['HTML', 'CSS', 'JS', 'Firebase', 'Node.js'],
+    `This was my first proper web application. Firebase allowed me to develop and roll out this application within a short period of time. This army-style attendance taking system is an internal tool now used by my company (military unit) which has over 50+ personells. The backend of the app, by design, will allow it to be used by virtually an unlimited number of companies whilst having their data isolated from one another. But as of now, it remains an internal tool.`,
+    ['HTML', 'CSS', 'JavaScript', 'Firebase', 'Node.js','NoSQL'],
     [
         {
         src: 'assets/live_parade_state/webp/screenshot_1.webp',
@@ -57,7 +57,7 @@ const ProjectsContent = `
 
     ${Project(
         'SG Prayer Times - <a href="https://github.com/nibmz7/sgprayertimes" target="blank">source code</a>',
-        `This is a utility app that was rewritten 2 years ago to make use of Kotlin. Built for the Muslim community in Singapore. I am very out of touch with Android development nowadays and with things like jetpack compose coming up, I'd say my source code is pretty much outdated and it isn't good to begin with. I no longer update the app but I upload the prayer times database file onto the server every december so the app can 'refresh' itself for the start of the new year.`,
+        `This is a utility app that was rewritten 2 years ago to make use of Kotlin. Built for the Muslim community in Singapore. I am very out of touch with Android development nowadays and with things like jetpack compose coming up, I would assume my source code is pretty much outdated and am not saying it was good to begin with. I do not actively maintain the app now except that before the start of the every year, I will upload the new prayer times database onto a server and the app will refresh its data automatically.`,
         ['Android', 'Kotlin'],
         [
         {
@@ -76,6 +76,26 @@ const ProjectsContent = `
             src: 'assets/sg_prayer_times/webp/screenshot_4.webp',
             alt: 'SG Prayer times app nearby mosques list',
         },
+        ]
+    )}
+
+    ${Project(
+        'Portfolio website',
+        `I wrote this website with a mobile first approach and wanted it took act and look like a mobile application. The layout readjusts when it is displayed on a screen big enough. This layout behavior is inspired by Android's own master-detail flow which was designed for tablets.`,
+        ['HTML', 'CSS', 'JavaScript'],
+        [
+        {
+            src: 'assets/portfolio_website/webp/screenshot_1.webp',
+            alt: 'Portfolio website home screen'
+        },
+        {
+            src: 'assets/portfolio_website/webp/screenshot_2.webp',
+            alt: 'Portfolio website detail screen'
+        },
+        {
+            src: 'assets/portfolio_website/webp/screenshot_3.webp',
+            alt: 'Portfolio website desktop view'
+        }
         ]
     )}
 
@@ -101,7 +121,7 @@ const ProjectsContent = `
 
     ${Project(
         'FIFA helper',
-        'This was the first Android app that I published a few years ago when I was still studying for my diploma. It got over 20k downloads over the course of the 2 years before I took it off the play store. I added an in-app purchase feature for a team planner just before it got unpublished and that surprisingly generated a profit of just under 200 bucks.',
+        'This was the first Android app that I published a few years ago. It got over 20k downloads over the course of the 2 years. I added an in-app purchase item for a team planning feature just before taking it off the play store and that surprisingly garnered a revenue of almost 200 bucks.',
         ['Android', 'Java'],
         [
         {

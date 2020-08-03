@@ -11,6 +11,23 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "redirects": [
+      {
+        "source": "/about",
+        "destination": "/?goto=about",
+        "type": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "/?goto=blog",
+        "type": 301
+      },
+      {
+        "source": "/projects",
+        "destination": "/?goto=projects",
+        "type": 301
+      }
     ]
   }
 }

@@ -100,6 +100,8 @@ const template = () => `
 
         .tags {
             display: flex;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 0.5rem 0;
             color: var(--color-text-secondary);
         }
 
@@ -109,7 +111,7 @@ const template = () => `
             font-weight: 600;
             border: 1px solid var(--color-text-secondary);
             border-radius: 30px;
-            margin-right: 0.5rem;
+            margin: 0 0.5rem 0.5rem 0;
         }
         
     </style>
