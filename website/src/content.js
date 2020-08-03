@@ -12,14 +12,8 @@ const AboutContent = `
 `;
 
 const BlogContent = `
-${Post('Basics of Linux GUI Stack', 'From Windows to Linux','https://www.google.com')}
-  ${Post('UEFI & GPT', 'From Windows to Linux')}
-  ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-  ${Post('UEFI & GPT', 'From Windows to Linux')}
-  ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-  ${Post('UEFI & GPT', 'From Windows to Linux')}
-  ${Post('Basics of Linux GUI Stack', 'From Windows to Linux')}
-  ${Post('UEFI & GPT', 'From Windows to Linux')}
+    ${Post('Basics of Linux GUI Stack', 'From Windows to Linux', 'https://dev.to/_nur_ilyas_/basics-of-linux-gui-stack-594o')}
+    ${Post('UEFI & GPT', 'From Windows to Linux', 'https://dev.to/_nur_ilyas_/uefi-gpt-3af3')}
 `;
 
 const ProjectsContent = `
