@@ -1,9 +1,9 @@
 
 
 
-> **DISCLAIMER**: THIS POST IS WRITTEN BY A COMPLETE NOVICE. INFORMATION STATED MAY BE INACCURATE AND IF SO, FEEL FREE TO CORRECT ANY MISTAKES.  
+> **DISCLAIMER**: This post is written by a complete novice. Information stated may be inaccurate and if so, feel free to correct any mistakes.
 > **RESEARCH TOPIC**: UEFI & GPT.  
-> **WHAT PROMPTED THIS?**: After interacting with the BIOS screen and GRUB menu, I started wondering what they are.
+> **WHAT PROMPTED THIS RESEARCH?**: After fiddling with the BIOS screen and GRUB menu, I started wondering what they are...
 
 ## BIOS & MBR
 Before we begin, you might want to take a look at this excellent article on legacy BIOS/MBR to have a bit of context: [MBR BOOT PROCESS.](https://neosmart.net/wiki/mbr-boot-process/)
@@ -13,7 +13,7 @@ Before we begin, you might want to take a look at this excellent article on lega
 > [Courtesy of UEFI on Wikipedia](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface) 
 - “The Unified Extensible Firmware Interface (UEFI) is a specification that defines a software interface between an operating system and platform firmware, replacing the legacy Basic Input/Output System (BIOS) firmware interface.” 
 
-- There’s embedded software in your computer also known as firmware. This platform firmware checks and ensures the hardwares (cpu, memory, input-output devices etc) are initialized and ready to be used for bootup. The UEFI specification only requires the firmware to create the standardized interfaces and does not state how the underlying interfaces should be implemented so it is up to the vendor to execute that bit. There is an open source firmware implementation of UEFI called [TianaCore](https://github.com/tianocore/tianocore.github.io/wiki/UEFI-EDKII-Learning-Dev).
+- There’s embedded software in your computer also known as firmware. This platform firmware checks and ensures the hardwares (cpu, memory, input-output devices etc) are initialized and ready to be used. The UEFI specification only requires the firmware to create the standardized interfaces and does not state how the underlying interfaces should be implemented so it is up to the vendor to execute that bit. There is an open source firmware implementation of UEFI called [TianaCore](https://github.com/tianocore/tianocore.github.io/wiki/UEFI-EDKII-Learning-Dev).
 > You may still come across the ‘BIOS’ setup utility screen, which is essentially the firmware settings. The term ‘BIOS’ is still used although your firmware is built for UEFI. Is this because BIOS is recognized amongst consumers for access to firmware settings that it became a noun? Can anyone clarify.
 
 

@@ -3,7 +3,7 @@ import { Post } from './ui/blog-view/BlogView.js';
 import { Project } from './ui/projects-view/ProjectsView.js';
 
 const AboutContent = `
-    ${Info('Where am I from?', 'I was brought into this world and raised in a tiny tropical island known as Singapore.')}
+    ${Info('Where am I from?', `I'm from a tiny tropical island in the Southeastern region of Asia with an absolute location of 1.3521° North (latitude) and 103.8198° East (longitude) a.k.a. Singapore.`)}
     ${Info('Alma mater', 'Diploma in Computer Engineering<br>@ Singapore Polytechnic')}
     ${Info('What am I currently doing?', `I'm serving in the army as a conscript until the 1st of February 2021. I try to learn as much as I can in my spare time.`)}
     ${Info('What am I planning to do after this National Service?', `NS has given me a buffer period to prepare for adulthood and I am very much thankful for it. What I plan to do right away is to kickstart a career as a professional software developer/engineer and if possible, pursue a part-time degree in computer science.`)}

@@ -1,9 +1,6 @@
-
-
-
-> **DISCLAIMER**: THIS POST IS WRITTEN BY A COMPLETE NOVICE. INFORMATION STATED MAY BE INACCURATE AND IF SO, FEEL FREE TO CORRECT ANY MISTAKES. 
+> **DISCLAIMER**: This post is written by a complete novice. Information stated may be inaccurate and if so, feel free to correct any mistakes. 
 > **RESEARCH TOPIC**: Linux GUI stack
-> **WHAT PROMPTED THIS?**: I stumbled across a process called 'xorg' and wondered that is. A quick Google and I realized it's something to do with graphics and so I set off on a journey to understand the Linux GUI stack from a high level.
+> **WHAT PROMPTED THIS RESEARCH?**: I stumbled across a process called 'xorg' and wondered what that is. A quick Google search shows it has something to do with displaying graphics and so begins the journey of trying to understand the Linux GUI stack on a surface level.
 
 ## Windowing System
 - In a windowing system, there are 2 main components: the display server and the window manager. 
@@ -18,15 +15,14 @@
 	- X11
 		- X<span>.</span>Org server (display server) + Mutter/KWin (window manager)
 		- X<span>.</span>Org server is the dominant implementation of the display server for X Window System (X11 Protocol).
-		![enter image description here](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/x11.webp)
+		![Basic X11 diagram](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/x11.webp)
 > “In the case of X11, A window manager is a regular X client. It doesn’t have any superuser privileges or keys to kernel backdoors; it is a normal user process that is allowed by the X server to call a set of special APIs. X ensures that no more than one window manager is running at any given point by denying a client access to these APIs if another client currently has access. The first client to attempt to access these APIs always succeeds.” - [How X Window Managers Work, And How To Write One (Part I)](https://jichu4n.com/posts/how-x-window-managers-work-and-how-to-write-one-part-i/)
 
-- Wayland
-	- Mutter/KWin - Wayland compositor (Display server + window manager)
-	- Wayland, unlike its X11 counterpart, does not have [network transparency](https://en.wikipedia.org/wiki/Network_transparency) in order to [simplify its architecture](https://wiki.ubuntu.com/Wayland#What_about_network_transparency.3F). 
-	![enter image description here](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/wayland.webp)
-> I was curious as to how a wayland client would communicate to the display server (wayland compositor). In wayland’s case, it would look for a unix socket (ipc socket) typically named wayland-0.
-https://wayland.freedesktop.org/docs/html/ch04.html#sect-Protocol-Wire-Format
+	- Wayland
+		- Mutter/KWin - Wayland compositor (Display server + window manager)
+		- Wayland, unlike its X11 counterpart, does not have [network transparency](https://en.wikipedia.org/wiki/Network_transparency) in order to [simplify its architecture](https://wiki.ubuntu.com/Wayland#What_about_network_transparency.3F). 
+	![Basic Wayland diagram](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/wayland.webp)
+	> I was curious as to how a wayland client would communicate to the display server (wayland compositor). In wayland’s case, it would look for a unix socket (ipc socket) typically named wayland-0. https://wayland.freedesktop.org/docs/html/ch04.html#sect-Protocol-Wire-Format
 - Linux GUI toolkits (QT, GTK) now supports both X11 and wayland protocol.
 
 ## Window Manager
@@ -42,7 +38,7 @@ https://wayland.freedesktop.org/docs/html/ch04.html#sect-Protocol-Wire-Format
 ## Display Manager
 - A [display manager](https://wiki.archlinux.org/index.php/display_manager) presents the user with a login screen. A session starts when a user successfully enters a valid combination of username and password.
 - Examples are GDM, KDM and LightDM.
-![enter image description here](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/display_manager.webp)
+![Ubuntu display manager](https://raw.githubusercontent.com/nibmz7/portfolio/main/blog/From_Windows_To_Linux/Basics_of_Linux_GUI_stack/assets/webp/display_manager.webp)
 > - Ubuntu uses GDM by default.
 > - GDM runs on wayland. Display managers that run on X, on the other hand, starts up the X server before displaying the login UI.
 > - GDM starts in TTY1 and on user login, it starts up the user session on TTY2. [Why is my GDM at a different TTY than my desktop environment?](https://askubuntu.com/questions/910108/why-is-my-gdm-at-a-different-tty-than-my-desktop-environment)
