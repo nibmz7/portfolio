@@ -1,9 +1,14 @@
 import { ProjectsContent } from '../../content.js';
 
+const lazyLoad = ('loading' in HTMLImageElement.prototype) ? 'loading="lazy' : '';
+
 const ScreenshotReducer = (accumulator, data) =>
   accumulator +
-  `<a href="${data.src}" target="_blank">
-    <img src="${data.src}" alt="${data.alt}" loading="lazy">
+  `<a href="${data.src}.png" target="_blank">
+    <picture>
+        <source srcset="${data.src}.webp" type="image/webp">
+        <img src="${data.src}.jpg" alt="${data.alt}">
+    </picture>
   </a>`;
 
 const TagReducer = (accumulator, tag) =>
@@ -62,7 +67,7 @@ const template = () => `
             display: none;  /* Chrome Safari */
         }
 
-        .screenshots > a > img {
+        .screenshots img {
             height: 15rem;
             border-radius: 5px;
             box-shadow: 0 0 6px 0px var(--color-shadow-box);

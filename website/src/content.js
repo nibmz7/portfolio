@@ -23,27 +23,27 @@ const ProjectsContent = `
     ['HTML', 'CSS', 'JavaScript', 'Firebase', 'Node.js','NoSQL'],
     [
         {
-        src: 'assets/live_parade_state/webp/screenshot_1.webp',
+        src: 'assets/live_parade_state/screenshot_1',
         alt: 'Live parade state web app user home screen',
         },
         {
-        src: 'assets/live_parade_state/webp/screenshot_2.webp',
+        src: 'assets/live_parade_state/screenshot_2',
         alt: 'Live parade state web app user attendance input dialogue',
         },
         {
-        src: 'assets/live_parade_state/webp/screenshot_3.webp',
+        src: 'assets/live_parade_state/screenshot_3',
         alt: 'Live parade state web app admin home screen',
         },
         {
-        src: 'assets/live_parade_state/webp/screenshot_4.webp',
+        src: 'assets/live_parade_state/screenshot_4',
         alt: 'Live parade state web app admin edit user dialogue',
         },
         {
-        src: 'assets/live_parade_state/webp/screenshot_5.webp',
+        src: 'assets/live_parade_state/screenshot_5',
         alt: 'Live parade state web app sign out dialogue',
         },
         {
-        src: 'assets/live_parade_state/webp/screenshot_6.webp',
+        src: 'assets/live_parade_state/screenshot_6',
         alt: 'Live parade state web app sign in screen',
         },
     ]
@@ -55,19 +55,19 @@ const ProjectsContent = `
         ['Android', 'Kotlin'],
         [
         {
-            src: 'assets/sg_prayer_times/webp/screenshot_1.webp',
+            src: 'assets/sg_prayer_times/screenshot_1',
             alt: 'SG Prayer times app home screen',
         },
         {
-            src: 'assets/sg_prayer_times/webp/screenshot_2.webp',
+            src: 'assets/sg_prayer_times/screenshot_2',
             alt: 'SG Prayer times app widget',
         },
         {
-            src: 'assets/sg_prayer_times/webp/screenshot_3.webp',
+            src: 'assets/sg_prayer_times/screenshot_3',
             alt: 'SG Prayer times app qibla compass',
         },
         {
-            src: 'assets/sg_prayer_times/webp/screenshot_4.webp',
+            src: 'assets/sg_prayer_times/screenshot_4',
             alt: 'SG Prayer times app nearby mosques list',
         },
         ]
@@ -79,15 +79,15 @@ const ProjectsContent = `
         ['HTML', 'CSS', 'JavaScript'],
         [
         {
-            src: 'assets/portfolio_website/webp/screenshot_1.webp',
+            src: 'assets/portfolio_website/screenshot_1',
             alt: 'Portfolio website home screen'
         },
         {
-            src: 'assets/portfolio_website/webp/screenshot_2.webp',
+            src: 'assets/portfolio_website/screenshot_2',
             alt: 'Portfolio website detail screen'
         },
         {
-            src: 'assets/portfolio_website/webp/screenshot_3.webp',
+            src: 'assets/portfolio_website/screenshot_3',
             alt: 'Portfolio website desktop view'
         }
         ]
@@ -99,15 +99,15 @@ const ProjectsContent = `
         ['Android', 'Java'],
         [
         {
-            src: 'assets/diy_fitness_app/webp/screenshot_1.webp',
+            src: 'assets/diy_fitness_app/screenshot_1',
             alt: 'DIY Fitness app home screen',
         },
         {
-            src: 'assets/diy_fitness_app/webp/screenshot_2.webp',
+            src: 'assets/diy_fitness_app/screenshot_2',
             alt: 'DIY Fitness app workout regime screen',
         },
         {
-            src: 'assets/diy_fitness_app/webp/screenshot_3.webp',
+            src: 'assets/diy_fitness_app/screenshot_3',
             alt: 'DIY Fitness app meal plan screen',
         },
         ]
@@ -119,7 +119,7 @@ const ProjectsContent = `
         ['Android', 'Java'],
         [
         {
-            src: 'assets/fifa_app/webp/screenshot_1.webp',
+            src: 'assets/fifa_app/screenshot_1',
             alt: 'FIFA app screenshots',
         },
         ]
