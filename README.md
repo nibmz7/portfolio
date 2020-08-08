@@ -1,8 +1,8 @@
 # Portfolio
 Source code for the resume website and drafts for blog posts.
 <br><br>
-![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/webp/screenshot_1.webp)
-![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/webp/screenshot_2.webp)
+![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/screenshot_1.webp)
+![NIMZ dev home screen](https://raw.githubusercontent.com/nibmz7/portfolio/main/website/assets/portfolio_website/screenshot_2.webp)
 
 # Installation
 1. Clone repo
