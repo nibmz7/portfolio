@@ -2,10 +2,10 @@ import { replaceFocusStyle, onPressed } from '../../Utils.js';
 import { BlogContent } from '../../content.js';
 
 const Post = (title, seriesTitle = null, link) => `
-    <div class="post" tabindex="0" aria-label="Post on ${title}" data-link="${link}">
+    <a class="post" href="${link}" target="_blank" tabindex="0" aria-label="Post on ${title}">
         <p class="title">${title}</p>
         ${seriesTitle ? `<p class="series">${seriesTitle}</p>` : ''}
-    </div>
+    </a>
 
     <div class="line"></div>
 
@@ -30,7 +30,7 @@ const template = () => `
             padding: 0 1rem;
             box-sizing: border-box;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
             transition: background .4s ease-out;
         }
 
@@ -65,12 +65,6 @@ export default class BlogView extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = template();
-    let posts = this.shadowRoot.querySelectorAll('.post');
-    posts.forEach((post) => {
-      onPressed(post, (e) => {
-        window.open(post.dataset.link, '_blank');
-      });
-    });
   }
 }
 

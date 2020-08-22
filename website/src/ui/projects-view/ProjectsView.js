@@ -1,13 +1,11 @@
 import { ProjectsContent } from '../../content.js';
 
-const lazyLoad = ('loading' in HTMLImageElement.prototype) ? 'loading="lazy' : '';
-
 const ScreenshotReducer = (accumulator, data) =>
   accumulator +
   `<a href="${data.src}.png" target="_blank">
     <picture>
         <source srcset="${data.src}.webp" type="image/webp">
-        <img src="${data.src}.jpg" alt="${data.alt}">
+        <img onload="this.className='loaded'" src="${data.src}.jpg" alt="${data.alt}" loading="lazy">
     </picture>
   </a>`;
 
@@ -68,9 +66,14 @@ const template = () => `
         }
 
         .screenshots img {
+            opacity: 0;
             height: 15rem;
             border-radius: 5px;
             box-shadow: 0 0 6px 0px var(--color-shadow-box);
+            transition: opacity ease 1s;
+        }
+        img.loaded {
+            opacity: 1;
         }
 
         .screenshots > a {

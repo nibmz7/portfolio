@@ -1,4 +1,4 @@
-import {hexToRGB} from '../../Utils.js'
+import { hexToRGB } from '../../Utils.js';
 
 const template = `
     <style>
@@ -34,19 +34,17 @@ const template = `
 
         @media all and (min-width: 50rem) {
             #root {
-              width: 50rem;
-              margin-left: auto;
-              margin-right: auto;
-              transform: translateX(15rem);
+              width: 100%;
+              transform: translateX(30%);
             }
             #list {
-              width: 20rem;
+              width: 40%;
             }
             #detail {
+              width: 60%;
               position: relative;
               opacity: 0;
               transition: opacity .3s .3s;
-              width: 30rem;
             }
             .expand > #detail {
               opacity: 1;
@@ -57,7 +55,7 @@ const template = `
             #divider {
               display: block;
               position: fixed;
-              left: 20rem;
+              left: 40%;
               top: 5rem;
               bottom: 5rem;
               border-left-color: var(--color-border);
@@ -105,16 +103,19 @@ export default class DynamicScreen extends HTMLElement {
   showDetailFragment(title) {
     this.homeView.setSelected(title);
     if (this.currentTitle) {
-      this.shadowRoot.querySelector(
-        `${this.currentTitle}-view`
-      ).style.display = '';
+      this.shadowRoot.querySelector(`${this.currentTitle}-view`).style.display =
+        '';
     }
     this.shadowRoot.querySelector(`${title}-view`).style.display = 'block';
+    this.shadowRoot.querySelector(`${title}-view`).style.pointerEvents = '';
     this.root.classList.add('expand');
     this.currentTitle = title;
   }
 
   hideDetailFragment() {
+    this.shadowRoot.querySelector(
+      `${this.currentTitle}-view`
+    ).style.pointerEvents = 'none';
     this.root.classList.remove('expand');
     this.homeView.reset();
   }

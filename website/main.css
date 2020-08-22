@@ -10,7 +10,8 @@
     U+FEFF, U+FFFD;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -26,10 +27,10 @@ body {
   margin: 0;
   overflow: hidden;
   background: var(--color-bg);
-  transition: background .3s;
-  --color-primary: #EB5757;
+  transition: background 0.3s;
+  --color-primary: #eb5757;
   --color-primary-dark: #d34444;
-  --color-link: #EC4141;
+  --color-link: #ec4141;
   --color-text: #323232;
   --color-text-secondary: #717171;
   --color-text-inverse: #ffffff;
@@ -45,7 +46,7 @@ body.dark {
   --color-primary-dark: #24262b;
   --color-link: #48fff3;
   --color-text: #ffffff;
-  --color-text-secondary:#ababab;
+  --color-text-secondary: #ababab;
   --color-text-inverse: #ffffff;
   --color-bg: #3e414a;
   --color-bg-dark: #303544;
@@ -58,19 +59,19 @@ body.dark {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-#top-wave, #bottom-wave {
+#top-wave,
+#bottom-wave {
   z-index: 9;
   fill: var(--color-waves);
-  transition: fill .3s;
+  transition: fill 0.3s;
 }
 
 #top-wave {
   position: absolute;
   top: 0;
-
 }
 
 #bottom-wave {
@@ -95,9 +96,14 @@ body.dark {
     height: 80vh;
     z-index: 9;
     margin: 15vh auto 5vh;
-    border-radius: 5px;
-    width: 50rem;
+    max-width: 80rem;
     box-shadow: 0 0 6px 0px var(--color-shadow-box);
     background: var(--color-bg);
+  }
+}
+
+@media all and (min-width: 80rem) {
+  #app {
+    border-radius: 5px;
   }
 }

@@ -12,6 +12,7 @@ const AboutContent = `
 `;
 
 const BlogContent = `
+    ${Post('Demystifying JavaScript ‘Class’', 'Understanding JS', 'https://www.linkedin.com/pulse/demystifying-javascript-class-nur-ilyas')}
     ${Post('Basics of Linux GUI Stack', 'From Windows to Linux', 'https://dev.to/_nur_ilyas_/basics-of-linux-gui-stack-594o')}
     ${Post('UEFI & GPT', 'From Windows to Linux', 'https://dev.to/_nur_ilyas_/uefi-gpt-3af3')}
 `;

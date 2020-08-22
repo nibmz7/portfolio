@@ -65,7 +65,10 @@ const template = `
             fill: var(--color-text);
         }
 
-        ${replaceFocusStyle('#title-box', 'background: var(--color-shadow-box);')}
+        ${replaceFocusStyle(
+          '#title-box',
+          'background: var(--color-shadow-box);'
+        )}
 
         #dark-mode-box {
             position: relative;
@@ -144,7 +147,7 @@ export default class AppBar extends HTMLElement {
     this.titleBox = this.shadowRoot.getElementById('title-box');
     this.titleText = this.shadowRoot.getElementById('title-text');
     let darkMode = localStorage.getItem('dark-mode') === 'true';
-    if(darkMode) toggleDarkMode.classList.add('enabled');
+    if (darkMode) toggleDarkMode.classList.add('enabled');
 
     onPressed(
       toggleDarkMode,
@@ -154,6 +157,7 @@ export default class AppBar extends HTMLElement {
         toggleDarkMode.classList.toggle('enabled');
         document.body.classList.toggle('dark');
       },
+      false,
       false
     );
   }

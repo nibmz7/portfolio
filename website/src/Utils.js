@@ -12,18 +12,18 @@ const isLocalNetwork = (hostname = window.location.hostname) => {
   else pointerEvent = null;
 };
 
-const onPressed = (element, callback, autoBlur = true) => {
+const onPressed = (element, callback, autoBlur = true, debounce = true) => {
   let isRunning = false;
   let onPressListener = (e) => {
     if (isRunning) return;
-    isRunning = true;
-    setTimeout(() => (isRunning = false), 1000);
+    if(debounce) {
+      isRunning = true;
+      setTimeout(() => (isRunning = false), 1000);
+    }
     callback(e);
   };
-  if (hasPointerEvent) {
-    element.onpointerup = onPressListener;
-    element.onpointerdown = (e) => e.preventDefault();
-  } else element.onclick = onPressListener;
+
+  element.onclick = onPressListener;
 
   element.onkeydown = (e) => {
     let code = e.keyCode;
@@ -36,11 +36,6 @@ const onPressed = (element, callback, autoBlur = true) => {
 
 const replaceFocusStyle = (selector, style) => `
   ${selector} {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
