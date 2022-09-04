@@ -22,7 +22,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <main className="h-screen">{children}</main>
+      <main className="h-screen bg-gray-100">{children}</main>
     </div>
   );
 }

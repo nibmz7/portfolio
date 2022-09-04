@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 
 import InfoIcon from "../components/icons/InfoIcon";
 import { siteTitle } from "../components/layout";
-import { getSortedPostsData } from "../lib/posts";
-import { BLOG_POST_ITEMS } from "./posts/_data";
+import { BLOG_POST_ITEMS } from "../lib/posts";
 
 const NAV_MENU_ITEMS = [
   { title: "About", icon: InfoIcon },
@@ -15,9 +14,11 @@ const NAV_MENU_ITEMS = [
   { title: "LinkedIn", icon: InfoIcon },
 ];
 
+const HOVER_BG_COLOR = "#f0f9ff";
+
 export default function Home({ allPostsData }) {
   return (
-    <div className="flex flex-col bg-gray-100 py-6 min-h-full">
+    <div className="flex flex-col py-6 min-h-full">
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -38,10 +39,10 @@ export default function Home({ allPostsData }) {
         <ul className="flex py-4 px-5 overflow-x-auto no-scrollbar space-x-4">
           {NAV_MENU_ITEMS.map(({ title, icon: Icon }) => (
             <motion.li
-              className="shadow flex items-center rounded-md bg-white py-2 px-5"
+              className="shadow flex items-center rounded-md bg-white py-2 px-5 cursor-pointer"
               initial={{ backgroundColor: "#ffffff" }}
-              whileHover={{ backgroundColor: "#f3f4f6" }}
-              whileTap={{ backgroundColor: "#f3f4f6" }}
+              whileHover={{ backgroundColor: HOVER_BG_COLOR }}
+              whileTap={{ backgroundColor: HOVER_BG_COLOR }}
             >
               <span className="mr-2">
                 <Icon className="h-5 w-5 fill-slate-400" />
@@ -51,13 +52,13 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
-      <section className="shadow rounded-md bg-white mx-5 flex flex-col">
+      <section className="shadow rounded-md bg-white mx-5 flex flex-col mb-7">
         {BLOG_POST_ITEMS.map(({ title, date, path }) => (
           <Link href={`posts/${path}`} passHref>
             <motion.a
               initial={{ backgroundColor: "#ffffff" }}
-              whileHover={{ backgroundColor: "#f3f4f6" }}
-              whileTap={{ backgroundColor: "#f3f4f6" }}
+              whileHover={{ backgroundColor: HOVER_BG_COLOR }}
+              whileTap={{ backgroundColor: HOVER_BG_COLOR }}
               className="flex flex-col p-5 border-b last:border-b-0 border-b-slate-200 first:rounded-t-md last:rounded-b-md group"
             >
               <span className="mb-2 text-lg group-hover:underline">
@@ -69,17 +70,14 @@ export default function Home({ allPostsData }) {
         ))}
       </section>
       <section className="text-center mt-auto">
-        <a className="hover:underline">Source code on GitHub</a>
+        <a
+          className="hover:underline cursor-pointer"
+          href="https://github.com/nibmz7/portfolio"
+          target="_blank"
+        >
+          Source code on GitHub
+        </a>
       </section>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
 }
