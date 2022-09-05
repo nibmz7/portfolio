@@ -9,6 +9,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 * {
@@ -22,6 +23,14 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* https://stackoverflow.com/questions/70883986/scroll-on-ios-does-not-scroll-entirely-down */
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  .h-screen {
+    height: -webkit-fill-available;
+  }
 }
 
 /*

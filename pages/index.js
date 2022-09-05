@@ -16,7 +16,7 @@ const NAV_MENU_ITEMS = [
 
 const HOVER_BG_COLOR = "#f0f9ff";
 
-export default function Home({ allPostsData }) {
+export default function Home() {
   return (
     <div className="flex flex-col py-4 min-h-full">
       <Head>
