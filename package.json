@@ -14,7 +14,8 @@
     "gray-matter": "^4.0.2",
     "next": "^12.2.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recma-nextjs-static-props": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

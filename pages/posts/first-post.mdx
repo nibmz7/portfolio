@@ -1,7 +1,38 @@
 export const meta = {
   path: "first-post",
   title: "My First Post",
-  date: "5 September 2022",
+  date: "11 September 2022",
 };
 
 # First post
+It's been ages since I last wrote a composition and I thought it's about time I get into the habit of writing to make sure than I don't lose and will continue to sharpen this skill.
+In this first post, I'm just going to write about 2 completely random topic. First being an unconventional prison system. Second being what I plan to build for my first—or second if I consider that side project that never finishes— Golang project. 
+
+## Inside the World's Toughest Prisons
+*Inside the World's Toughest Prisons* is a netflix documentary and 3 episodes that I've seen recently really stood out - *Greenland: Prison in the Ice*, *Costa Rica: Prison on a Knife-Edge* and *Norway: The Perfect Prison?*.
+These episodes potray a similar but radical prison system which focuses 100% on rehabilitation. For someone who only knows of a typical prison system, seeing one of these *prison hotels*
+for the first time may seem somewhat prepostourous. It's completely reasonable to have that reaction as everyone alike would ask the crucial question - *Why are they allowed to have access to all those perks
+when there's a victim out there suffering from the crime committed against them?* That was the line of questioning I had at first but as soon as I saw the prisoners speak of their experiences and their past, I could see that there's genuine remorse and change in mindset.
+For a more statistical evidence, the decline in recidivism rate shared in the Norway episode also shows that the new method is indeed effective. That said, I'm not saying every country's justice system should operate in the same manner; just sharing my thoughts when I came across this interesting yet controversial approach.
+
+## CLI async tasks progress loader
+As a way to familiarise with Go, I plan on writing a cli library that can display the progress of multiple tasks — similar to [cli-progress](https://www.npmjs.com/package/cli-progress) library.
+It should be able to render a clear visual hierarchy of the running tasks, including nested tasks.
+```
+Task 1
+├── sub-task 1 ✓
+│   ├── sub-task 1-1  ✓
+│   └── sub-task 1-2 ✓
+├── sub-task 2 ✓
+│   ├── sub-task 2-1 ✓
+│   └── sub-task 2-2 ✓
+├── sub-task 3 ✓
+└── sub-task 4 ✓
+```
+Here are 3 things I can work on first to get the ball rolling
+- Write to STDOUT without printf
+- Do a simple spinner animation using (/-\\|)
+- Simulate multiple long-running async tasks and print their completion status
+- Erase cursor from cli
+- Listen for *SIGINT* and *SIGTERM* signals
+- Extend this list once the above are done and continue in another post...

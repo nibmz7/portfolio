@@ -6,7 +6,6 @@ import "../styles/global.css";
 import ArrowBack from "../components/icons/arrowBack";
 import Link from "next/link";
 import Head from "next/head";
-import { siteTitle } from "../components/layout";
 
 const fadeVariants = {
   inactive: {
@@ -38,9 +37,9 @@ const titleVariants = {
   },
 };
 
-const titleTransitions = {
+const titleTransition = {
   type: "tween",
-  duration: 0.7,
+  duration: 0.5,
 };
 
 const HOVER_BG_COLOR = "#f0f9ff";
@@ -51,52 +50,59 @@ export default function App({ Component, pageProps }) {
   return (
     <MDXProvider components={markdownComponents}>
       <Head>
-        <link rel="icon" href="/images/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/images/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="description" content="Nur Ilyas Blog" />
-        <meta name="og:title" content={siteTitle} />
       </Head>
       <main className="h-screen w-screen bg-gray-100 flex flex-col items-center overflow-y-auto max-h-screen">
         <header className="w-full max-w-md mt-4">
           <div className="shadow flex rounded-md bg-white p-2 mx-5">
             <div className="overflow-hidden relative w-full p-2">
-              <AnimatePresence mode="popLayout" initial={false}>
-                {isHome ? (
-                  <motion.h1
-                    key="home-title"
-                    className="font-semibold text-slate-700"
-                    transition={titleTransitions}
-                    variants={titleVariants}
-                    initial="homeInactive"
-                    animate="homeActive"
-                    exit="homeInactive"
-                  >
-                    Home
-                  </motion.h1>
-                ) : (
+              <motion.h1
+                key="home-title"
+                className="font-semibold text-slate-700 absolute"
+                initial={isHome ? 'homeActive': 'homeInactive'}
+                animate={isHome ? 'homeActive': 'homeInactive'}
+                variants={titleVariants}
+                transition={titleTransition}
+              >
+                Home
+              </motion.h1>
+              <motion.div
+                key="blog-title absolute"
+                initial={!isHome ? 'postActive': 'postInactive'}
+                animate={!isHome ? 'postActive': 'postInactive'}
+                variants={titleVariants}
+                transition={titleTransition}
+              >
+                <Link href="/">
                   <motion.div
-                    key="blog-title"
-                    transition={titleTransitions}
-                    variants={titleVariants}
-                    initial="postInactive"
-                    animate="postActive"
-                    exit="postInactive"
+                    className="flex items-center cursor-pointer w-max rounded-md -ml-1 pl-1 pr-2"
+                    initial={{ backgroundColor: "#ffffff" }}
+                    whileHover={{ backgroundColor: HOVER_BG_COLOR }}
+                    whileTap={{ backgroundColor: HOVER_BG_COLOR }}
                   >
-                    <Link href="/">
-                      <motion.div
-                        className="flex items-center cursor-pointer w-max rounded-md -ml-1 pl-1 pr-2"
-                        initial={{ backgroundColor: "#ffffff" }}
-                        whileHover={{ backgroundColor: HOVER_BG_COLOR }}
-                        whileTap={{ backgroundColor: HOVER_BG_COLOR }}
-                      >
-                        <ArrowBack className="h-3 w-5 fill-slate-700 stroke-2" />
-                        <h1 className="font-semibold text-slate-700">
-                          Go Back
-                        </h1>
-                      </motion.div>
-                    </Link>
+                    <ArrowBack className="h-3 w-5 fill-slate-700 stroke-2" />
+                    <h1 className="font-semibold text-slate-700">Go Back</h1>
                   </motion.div>
-                )}
-              </AnimatePresence>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </header>
