@@ -68,7 +68,7 @@ export default function Home({ posts }) {
               whileTap={{ backgroundColor: HOVER_BG_COLOR }}
               className="flex flex-col p-5 border-b last:border-b-0 border-b-slate-200 first:rounded-t-md last:rounded-b-md group"
             >
-              <span className="mb-2 text-lg group-hover:underline">
+              <span className="mb-2 pr-2 text-lg group-hover:underline">
                 {title}
               </span>
               <span className="text-xs text-gray-500">{date}</span>

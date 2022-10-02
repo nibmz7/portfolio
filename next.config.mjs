@@ -15,4 +15,11 @@ const withMDX = nextMDX({
 export default withMDX({
   // Append the default value with md extensions
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.go$/,
+      use: "raw-loader",
+    });
+    return config;
+  },
 });

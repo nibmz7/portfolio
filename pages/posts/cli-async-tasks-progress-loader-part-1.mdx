@@ -1,0 +1,90 @@
+import Image from "next/image";
+import { Prism } from "@mantine/prism";
+import { ImageWrapper } from "../../components/ImageWrapper";
+import myGif from "../../assets/cli-part-1.gif";
+import loadingWithCursor from "../../assets/loading-with-cursor.gif";
+import messyOutput from "../../assets/messy-output.png";
+import writeStdOutCode from "../../examples/write-stdout.go";
+import clearLineTerminal from "../../examples/clear-line.go";
+import soccerHeaderOne from "../../examples/soccer-header-one.go";
+import finalCode from "../../examples/final-code-soccer-header-loading.go";
+import enableRawModeCode from "../../examples/enable-raw-mode.go";
+
+export const meta = {
+  path: "cli-async-tasks-progress-loader-part-1",
+  title: "CLI Async Tasks Progress Loader Part 1",
+  date: "2 October 2022",
+};
+
+# Introduction
+
+In this post, we'll go through step-by-step on how to create this cool soccer header loading animation in the terminal. Here is a summary of things we will cover:
+
+1. Write to stdout
+2. Clear line in the terminal
+3. Hide/show the cursor
+4. Enable raw input mode
+
+<ImageWrapper className="mt-4">
+  <Image
+    src={myGif}
+    alt="Soccer header loading animation in the terminal"
+    height={296}
+    width={828}
+  />
+</ImageWrapper>
+
+## Write to stdout
+
+Here is a short Go program that writes bytes to stdout. We will be using the [adult emoji 🧑](https://unicode-table.com/en/search/?q=%F0%9F%A7%91) in this example.
+We refer to the [ascii table](https://web.alfredstate.edu/faculty/weimandn/miscellaneous/ascii/ascii_index.html) to get the hex value for the new line [control character](https://en.wikipedia.org/wiki/Control_character).
+To get the utf-8 code units for the '🧑' emoji, we can use the [unicode code converter tool](https://r12a.github.io/app-conversion/).
+
+<Prism language="go">{writeStdOutCode}</Prism>
+
+## Clear the terminal
+
+To clear a line in the terminal, we can use the [ansi escape code](https://en.wikipedia.org/wiki/ANSI_escape_code) `ESC[2K` — this will clear the entire line — followed by `ESC[G` — this will move the cursor to the beginning of the line.
+
+<Prism language="go">{clearLineTerminal}</Prism>
+
+## Soccer header animation
+
+Now that we know how to clear a line in the terminal, we can use this to create a [soccer header animation](https://github.com/sindresorhus/cli-spinners/blob/main/spinners.json#L1358). We will print a frame every 100 milliseconds.
+
+<Prism language="go">{soccerHeaderOne}</Prism>
+
+<ImageWrapper className="mt-4">
+  <Image
+    src={loadingWithCursor}
+    alt="Soccer header loading animation in the terminal with cursor"
+    height={296}
+    width={828}
+  />
+</ImageWrapper>
+
+## Hide/show the cursor
+
+If you look at the gif above, you can see the cursor at the start of the line. We can remove hide it to make it look nicer.
+To hide the cursor, we can use the [ansi escape code](https://en.wikipedia.org/wiki/ANSI_escape_code) `ESC[?25l` and to show it again when the program ends, we can use `ESC[?25h`.
+To decide when to show back the cursor, we can use the [defer statement](https://tour.golang.org/flowcontrol/12) or listen to the interrupt signal. In the example below, we will use the interrupt signal approach.
+
+<Prism language="go">{finalCode}</Prism>
+
+## Bonus: Enabling raw input mode
+
+<ImageWrapper className="mb-4">
+  <Image
+    src={messyOutput}
+    alt="Messy output in the terminal when user presses enter"
+    height={296}
+    width={828}
+  />
+</ImageWrapper>
+
+You might notice that if you were to press 'enter' whilst the animation is running, it may mess up the output.
+This is because the terminal is in [cooked mode](https://en.wikipedia.org/wiki/Terminal_mode) by default.
+To fix this, we can enable [raw input mode](https://en.wikipedia.org/wiki/Cooked_and_raw_input_modes#Raw_mode) by using the [termios](https://en.wikipedia.org/wiki/Termios) library.
+This will allow us to read the input character by character instead of line by line. Below is an example of how to do this on macos.
+
+<Prism language="go">{enableRawModeCode}</Prism>
