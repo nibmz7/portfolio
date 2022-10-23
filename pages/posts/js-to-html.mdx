@@ -1,0 +1,39 @@
+import { JSHighlighter } from "../../lib/JSHighlighter";
+import jsString from "../../lib/tokenizer.string.js";
+
+export const meta = {
+  path: "js-to-html",
+  title: "JS-to-HTML Syntax highlighter",
+  date: "24 October 2022",
+};
+
+# JS-to-HTML Syntax highlighter
+
+I stumbled upon [sugar-high](https://github.com/huozhi/sugar-high), a lightweight JSX syntax highlighter, project on github.
+Since I have time on my hands, I thought why not go through the source code and try to implement a similar syntax highlighter myself.
+I wrote the tokenizer and implemented a simple JSHighlighter [component](https://github.com/nibmz7/portfolio/blob/main/lib/JSHighlighter.jsx).
+The final outcome is far from perfect and I can already imagine how much work it would be to implement a full fledged one like in a code editor.
+
+## Result 1
+
+This is an example of the syntax highlighting on the tokenizer [code](https://github.com/nibmz7/portfolio/blob/main/lib/tokenizer.js) itself.
+
+<JSHighlighter code={jsString} />
+
+## Result 2
+
+Another example with string templates.
+
+<JSHighlighter
+  code={`\`Hello \${lol + 'banana'} 7 \${\`bye bye\` + "pineapple"}\`;`}
+/>
+
+## Result 3
+
+Last example with multiline comments.
+
+<JSHighlighter
+  code={`/**
+ * This is a multi-line JavaScript comment
+ */`}
+/>

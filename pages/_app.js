@@ -72,7 +72,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <main className="h-screen w-screen bg-gray-100 flex flex-col items-center overflow-y-auto max-h-screen">
         <header className="w-full max-w-md mt-4">
-          <div className="shadow flex rounded-md bg-white p-2 mx-5">
+          <div className="shadow flex rounded-md bg-white p-2 mx-4">
             <div className="overflow-hidden relative w-full p-2">
               <motion.h1
                 key="home-title"

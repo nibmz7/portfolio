@@ -12,7 +12,7 @@ import enableRawModeCode from "../../examples/enable-raw-mode.go";
 
 export const meta = {
   path: "cli-async-tasks-progress-loader-part-1",
-  title: "CLI Async Tasks Progress Loader Part 1",
+  title: "CLI Progress Loader Part 1",
   date: "2 October 2022",
 };
 
@@ -65,7 +65,7 @@ Now that we know how to clear a line in the terminal, we can use this to create 
 
 ## Hide/show the cursor
 
-If you look at the gif above, you can see the cursor at the start of the line. We can remove hide it to make it look nicer.
+If you look at the gif above, you can see the cursor at the start of the line. We can remove it to make it look nicer.
 To hide the cursor, we can use the [ansi escape code](https://en.wikipedia.org/wiki/ANSI_escape_code) `ESC[?25l` and to show it again when the program ends, we can use `ESC[?25h`.
 To decide when to show back the cursor, we can use the [defer statement](https://tour.golang.org/flowcontrol/12) or listen to the interrupt signal. In the example below, we will use the interrupt signal approach.
 
@@ -86,5 +86,9 @@ You might notice that if you were to press 'enter' whilst the animation is runni
 This is because the terminal is in [cooked mode](https://en.wikipedia.org/wiki/Terminal_mode) by default.
 To fix this, we can enable [raw input mode](https://en.wikipedia.org/wiki/Cooked_and_raw_input_modes#Raw_mode) by using the [termios](https://en.wikipedia.org/wiki/Termios) library.
 This will allow us to read the input character by character instead of line by line. Below is an example of how to do this on macos.
+
+- [raw_mode_posix.go github gist](https://gist.github.com/EddieIvan01/4449b64fc1eb597ffc2f317cfa7cc70c)
+- [An article explaining raw input mode](https://viewsourcecode.org/snaptoken/kilo/02.enteringRawMode.html)
+- [Nodejs set raw input mode](https://nodejs.org/api/tty.html#readstreamsetrawmodemode)
 
 <Prism language="go">{enableRawModeCode}</Prism>

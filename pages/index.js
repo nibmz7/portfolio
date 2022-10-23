@@ -28,7 +28,7 @@ export default function Home({ posts }) {
         <title>Home - Nur Ilyas Blog</title>
       </Head>
 
-      <section className="shadow flex rounded-md bg-white p-4 mx-5">
+      <section className="shadow flex rounded-md bg-white p-4 mx-4">
         <span className="flex justify-center items-center h-16 w-16 rounded-full bg-gray-300 text-white text-lg">
           NI
         </span>
@@ -59,7 +59,7 @@ export default function Home({ posts }) {
         <div className="absolute top-1.5 left-0 bottom-1.5 w-5 bg-gradient-to-r from-gray-100 to-transparent"></div>
         <div className="absolute top-1.5 right-0 bottom-1.5 w-5 bg-gradient-to-l from-gray-100 to-transparent"></div>
       </section>
-      <section className="shadow rounded-md bg-white mx-5 flex flex-col mb-7">
+      <section className="shadow rounded-md bg-white mx-4 flex flex-col mb-7">
         {posts.map(({ title, date, path }) => (
           <Link href={`posts/${path}`} passHref key={path}>
             <motion.a

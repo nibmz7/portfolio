@@ -17,7 +17,7 @@ export default withMDX({
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.go$/,
+      test: /(\.go|\.string\.js)$/,
       use: "raw-loader",
     });
     return config;
