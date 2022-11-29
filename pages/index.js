@@ -8,15 +8,23 @@ import LinkedInIcon from "../components/icons/LinkedInIcon";
 import GithubIcon from "../components/icons/GithubIcon";
 
 const NAV_MENU_ITEMS = [
-  { title: "About", icon: InfoIcon },
+  {
+    title: "About",
+    icon: InfoIcon,
+    href: "https://www.linkedin.com/in/nur-ilyas-827544133/",
+  },
   {
     title: "LinkedIn",
     icon: LinkedInIcon,
     href: "https://www.linkedin.com/in/nur-ilyas-827544133/",
   },
   { title: "GitHub", icon: GithubIcon, href: "https://github.com/nibmz7" },
-  { title: "Blog", icon: InfoIcon },
-  { title: "Projects", icon: InfoIcon },
+  { title: "Blog", icon: InfoIcon, href: "https://nimz.dev" },
+  {
+    title: "Projects",
+    icon: InfoIcon,
+    href: "https://www.linkedin.com/in/nur-ilyas-827544133/",
+  },
 ];
 
 const HOVER_BG_COLOR = "#f0f9ff";
@@ -29,12 +37,12 @@ export default function Home({ posts }) {
       </Head>
 
       <section className="shadow flex rounded-md bg-white p-4 mx-4">
-        <span className="flex justify-center items-center h-16 w-16 rounded-full bg-gray-300 text-white text-lg">
+        <h2 className="flex justify-center items-center h-16 w-16 rounded-full bg-gray-300 text-white text-lg">
           NI
-        </span>
+        </h2>
         <div className="flex flex-col ml-4 justify-center">
-          <span className="text-lg">Nur Ilyas</span>
-          <span className="text-xs">Software engineer @ Shopee</span>
+          <h2 className="text-lg">Nur Ilyas</h2>
+          <h2 className="text-xs">Software engineer @ Shopee</h2>
         </div>
       </section>
       <section className="relative">
@@ -68,10 +76,8 @@ export default function Home({ posts }) {
               whileTap={{ backgroundColor: HOVER_BG_COLOR }}
               className="flex flex-col p-5 border-b last:border-b-0 border-b-slate-200 first:rounded-t-md last:rounded-b-md group"
             >
-              <span className="mb-2 pr-2 text-lg group-hover:underline">
-                {title}
-              </span>
-              <span className="text-xs text-gray-500">{date}</span>
+              <p className="mb-2 pr-2 text-lg group-hover:underline">{title}</p>
+              <p className="text-xs text-gray-500">{date}</p>
             </motion.a>
           </Link>
         ))}

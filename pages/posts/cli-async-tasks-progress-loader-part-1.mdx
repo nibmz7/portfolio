@@ -25,7 +25,7 @@ In this post, we'll go through step-by-step on how to create this cool soccer he
 3. Hide/show the cursor
 4. Enable raw input mode
 
-<ImageWrapper className="mt-4">
+<ImageWrapper className="mt-4 isolate">
   <Image
     src={myGif}
     alt="Soccer header loading animation in the terminal"
@@ -54,7 +54,7 @@ Now that we know how to clear a line in the terminal, we can use this to create 
 
 <Prism language="go">{soccerHeaderOne}</Prism>
 
-<ImageWrapper className="mt-4">
+<ImageWrapper className="mt-4 isolate">
   <Image
     src={loadingWithCursor}
     alt="Soccer header loading animation in the terminal with cursor"
@@ -73,7 +73,7 @@ To decide when to show back the cursor, we can use the [defer statement](https:/
 
 ## Bonus: Enabling raw input mode
 
-<ImageWrapper className="mb-4">
+<ImageWrapper className="mb-4 isolate">
   <Image
     src={messyOutput}
     alt="Messy output in the terminal when user presses enter"

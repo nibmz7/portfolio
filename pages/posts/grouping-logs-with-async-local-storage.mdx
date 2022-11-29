@@ -1,0 +1,109 @@
+import Image from "next/image";
+import { Prism } from "@mantine/prism";
+import demoGif from "../../assets/cli-logger.gif";
+import { ImageWrapper } from "../../components/ImageWrapper";
+
+export const meta = {
+  path: "grouping-logs-with-async-local-storage",
+  title: "Grouping logs with async local storage",
+  date: "29 November 2022",
+};
+
+# TLDR 
+
+Checkout the source code on [Github](https://github.com/nibmz7/nimz-cli) or visit the package [NPM](https://www.npmjs.com/package/nimz-cli) page.
+
+## Noisy logging problem
+
+When you have a lot of logs in your application, it can be hard to find the one you are looking for. You might write a cli program that does a bunch of asynchronous work and you
+want to display the logs in a structured way so that it's easy to associate a line of log to a related task. This is where we try to make use
+of Nodejs' async local storage to track asynchronous context and be able to group related logs together. But before we get into that, let's
+briefly talk about async local storage.
+
+## Async local storage in Node.js
+
+As this article is more about making use of async local storage, we won't go into detail about what it is. However, below we have compiled a list of useful resources
+to give you a better understanding of what it is and how it works. In short, it's a way to store data in a context that is accessible from anywhere in an asynchronous
+code execution path. This ease of access saves us the trouble of having to pass down the context manually.
+
+- [Async local storage offical docs](https://nodejs.org/api/async_hooks.html#async_hooks_class_asynclocalstorage)
+- [Async hooks official docs](https://nodejs.org/api/async_hooks.html)
+- AdonisJS docs on its [HTTP Context](https://docs.adonisjs.com/guides/context) and [how they used ALS](https://docs.adonisjs.com/guides/async-local-storage).
+- [A Pragmatic Overview of Async Hooks API in Node.js](https://itnext.io/a-pragmatic-overview-of-async-hooks-api-in-node-js-e514b31460e9)
+- [Introducing Bubbleprof - a novel approach to Node.js async profiling](https://clinicjs.org/blog/introducing-bubbleprof/)
+- [Understanding Async Resources with Async Hooks](https://blog.insiderattack.net/understanding-async-resources-with-async-hooks-3416de574f30)
+- [Exploring Node.js Async Hooks](https://blog.appsignal.com/2020/09/30/exploring-nodejs-async-hooks.html)
+- [The power of Async Hooks in Node.js](https://medium.com/nmc-techblog/the-power-of-async-hooks-in-node-js-8a2a84238acb)
+
+## What are we building?
+
+<ImageWrapper className="my-4 isolate">
+  <Image
+    src={demoGif}
+    alt="Soccer header loading animation in the terminal"
+  />
+</ImageWrapper>
+
+We are building a single file logging utility that will allow us to scope logs with async local storage. We assume that all output will be written to a terminal
+that supports [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code) — it is required for erasing the screen and coloring the texts.
+
+The goal is for the user to write as little instrumentation code as possible. Instrumentation code is additional code that a user has to write to make use of a library.
+For example, in the case of request tracing, the user may have to manually wrap code in library functions to generate the trace. This is instrumentation code. We want to reduce the amount of
+manual instrumentation and automate it. With that in mind, our logging utility exports only 3 functions — _log_, _withGrouping_, _withLogManager_.
+
+1. The **log** function will be used to add logs for the current async context.
+2. The **withGrouping** function will be used to create a new async scope which represents a group of logs. Nested scope will be grouped under the parent.
+3. The **withLogManager** function is required as a top-level wrapper which will then allow `log` and `withGrouping` to be called from anywhere.
+  
+  
+Below is the code running in the gif above.
+
+<Prism language="js">
+  {
+    `
+import delay from "delay";
+import randomWords from "random-words";
+import { log, logFinished, withGrouping, withLogManager } from "./logger.js";
+
+function randomMs() {
+  return Math.random() * 1000;
+}
+
+async function doSomething3() {
+  log("doSomething-3");
+  for (let i = 0; i < 10; i++) {
+    log("doSomething-33 " + randomWords(5));
+    await delay(randomMs());
+    log("doSomething-333 " + randomWords(20));
+  }
+}
+
+async function doSomething2() {
+  log("doSomething-2");
+  await delay(randomMs());
+  log("doSomething-22");
+  await withGrouping("d", doSomething3);
+  log("doSomething-222");
+  logFinished("You're all set!", randomWords(5).join(" "));
+}
+
+withLogManager(
+  async () => {
+    await withGrouping("a", async () => {
+      log("doSomething-1-a start");
+      await delay(randomMs());
+      await Promise.all([
+        withGrouping("b", doSomething2),
+        withGrouping("c", doSomething2),
+      ]);
+      await delay(randomMs());
+      log("doSomething-1-a end");
+    });
+  },
+  { saveToFile: true, maxWidth: 100 }
+);
+
+`.trim()
+}
+
+</Prism>
