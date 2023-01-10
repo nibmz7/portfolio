@@ -53,3 +53,19 @@ img {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.expandable-text > p:not(:first-of-type) {
+  display: none;
+}
+
+.expandable-text > blockquote:not(:first-of-type) {
+  display: none;
+}
+
+.expandable-text > p:first-of-type {
+  padding-top: 8px;
+}
+
+.expandable-text  p {
+  margin-bottom: 0;
+}
