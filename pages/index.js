@@ -42,7 +42,7 @@ export default function Home({ posts }) {
         </h2>
         <div className="flex flex-col ml-4 justify-center">
           <h2 className="text-lg">Nur Ilyas</h2>
-          <h2 className="text-xs">Software engineer @ Shopee</h2>
+          <h2 className="text-xs">Software engineer @ TikTok</h2>
         </div>
       </section>
       <section className="relative">
