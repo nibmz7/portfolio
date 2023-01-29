@@ -54,12 +54,16 @@ img {
   }
 }
 
-.expandable-text > p:not(:first-of-type) {
+.expandable-text > * {
   display: none;
 }
 
-.expandable-text > blockquote:not(:first-of-type) {
-  display: none;
+.expandable-text > blockquote:first-of-type {
+  display: block;
+}
+
+.expandable-text > p:first-of-type {
+  display: block;
 }
 
 .expandable-text > p:first-of-type {
